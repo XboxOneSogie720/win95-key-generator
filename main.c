@@ -7,30 +7,7 @@ void usage() {
     printf("Usage:\n\n-h, --help, -help - Displays the help\n-o, -oem - Generates a Windows 95 OEM Key\n-cd, -cdkey - Generates a Windows 95 CD Key\n");
 }
 
-
-int main(int argc, char *argv[]) {
-    if(argc >= 3){
-        printf("Too many arguments. Try again.\n");
-        return 0;
-    }
-
-    if(strcasecmp(argv[1], "--help") == 0 || strcasecmp(argv[1], "-help") == 0 || strcasecmp(argv[1], "-h") == 0 ) {
-        usage();
-        return 0;
-    }
-    else if(strcasecmp(argv[1], "-o") == 0 || strcasecmp(argv[1], "-oem") == 0) {
-        win95oem();
-    }
-    else if(strcasecmp(argv[1], "-cd") == 0 || strcasecmp(argv[1], "-cdkey") == 0) {
-        win95cdkey();
-    }
-    else {
-    printf("Too few / incorrect arguments supplied. Please try again.\n");
-    }
-    return 0;
-}
-
-int win95cdkey() {
+void win95cdkey() {
     srand(time(0));
     int chunk1 = (rand() % (998 - 100 +1)) + 100;
     if(chunk1 == 333 || chunk1 == 444 || chunk1 == 555 || chunk1 == 666 || chunk1 == 777 || chunk1 == 888 || chunk1 == 999) {
@@ -93,3 +70,30 @@ int randomNumber(int upper, int lower) {
         finalValue = (randomm % (upper - lower +1) ) + lower;
     return finalValue;
 }
+
+int main(int argc, char *argv[]) {
+    if(argc >= 3){
+        printf("Too many arguments. Try again.\n");
+        return 0;
+    } else if(argc < 2) {
+        usage();
+        return 0;
+    }
+
+    if(strcasecmp(argv[1], "--help") == 0 || strcasecmp(argv[1], "-help") == 0 || strcasecmp(argv[1], "-h") == 0 ) {
+        usage();
+        return 0;
+    }
+    else if(strcasecmp(argv[1], "-o") == 0 || strcasecmp(argv[1], "-oem") == 0) {
+        win95oem();
+    }
+    else if(strcasecmp(argv[1], "-cd") == 0 || strcasecmp(argv[1], "-cdkey") == 0) {
+        win95cdkey();
+    }
+    else {
+    printf("Too few / incorrect arguments supplied. Please try again.\n");
+    }
+    return 0;
+}
+
+
