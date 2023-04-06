@@ -30,6 +30,7 @@ int win95cdkey() {
 
     printf("FINAL DEBUG\nchunk2[0]: %d\nchunk2[1]: %d\nchunk2[2]: %d\nchunk2[3]: %d\nchunk2[4]: %d\nchunk2[5]: %d\nchunk2[6]: %d\n",chunk2[0], chunk2[1], chunk2[2], chunk2[3], chunk2[4], chunk2[5], chunk2[6]);
     printf("\nKey: %d-%d%d%d%d%d%d%d\n\nThanks for using my program!\n\n", chunk1, chunk2[0], chunk2[1], chunk2[2], chunk2[3], chunk2[4], chunk2[5], chunk2[6]);
+    return 0;
 }
 
 int win95oem(){
